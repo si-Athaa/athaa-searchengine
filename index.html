@@ -5,60 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Athaa | SearchEngine</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     
     <style>
         body { font-family: 'Roboto', sans-serif; background-color: #fff; color: #202124; }
         .brand-font { font-family: 'Outfit', sans-serif; }
 
-        /* Style untuk Hasil Pencarian Google CSE */
+        /* --- Styling Agar Hasil Pencarian Mirip Google Asli --- */
         .gsc-control-cse { padding: 0 !important; border: none !important; background: transparent !important; }
-        .gsc-search-button { display: none !important; } /* Sembunyikan tombol bawaan di result page */
-        .gsc-input-box { 
-            border: 1px solid #dfe1e5 !important; 
-            border-radius: 24px !important; 
-            height: 44px !important;
-            box-shadow: none !important;
-        }
+        
+        /* Hilangkan tombol search bawaan Google di halaman hasil (kita pakai header sendiri) */
+        .gsc-search-button { display: none !important; } 
+        
+        /* Styling Judul Hasil */
         .gs-title { color: #1a0dab !important; text-decoration: none !important; font-size: 20px !important; }
         .gs-title:hover { text-decoration: underline !important; }
-        .gs-snippet { color: #4d5156 !important; font-size: 14px !important; }
-        .gsc-url-top { color: #202124 !important; }
+        
+        /* Styling Deskripsi/Snippet */
+        .gs-snippet { color: #4d5156 !important; font-size: 14px !important; line-height: 1.58 !important; }
+        
+        /* Hilangkan Iklan & Branding */
         .gsc-adBlock, .gcse-branding { display: none !important; }
+        .gsc-url-top { color: #202124 !important; font-size: 14px !important; }
     </style>
 </head>
 <body>
 
-    <div id="home-view" class="flex flex-col h-screen justify-between items-center transition-opacity duration-300">
+    <div id="home-view" class="flex flex-col h-screen justify-between items-center">
         
-        <div class="w-full flex justify-end p-4 gap-4 text-sm text-gray-600">
+        <div class="w-full flex justify-end p-5 gap-4 text-sm text-gray-600">
             <a href="#" class="hover:underline">Gmail</a>
             <a href="#" class="hover:underline">Images</a>
             <div class="w-8 h-8 bg-blue-600 rounded-full text-white flex items-center justify-center font-bold">A</div>
         </div>
 
-        <div class="flex flex-col items-center w-full max-w-[584px] px-4 -mt-20">
-            <div class="mb-8 text-center">
-                <h1 class="brand-font text-[80px] md:text-[90px] font-bold text-slate-800 tracking-tighter leading-none">
-                    athaa<span class="text-blue-600">.</span>
-                </h1>
-            </div>
+        <div class="flex flex-col items-center w-full max-w-[584px] px-4 -mt-32">
+            <h1 class="brand-font text-[80px] md:text-[90px] font-bold text-slate-800 tracking-tighter leading-none mb-6">
+                athaa<span class="text-blue-600">.</span>
+            </h1>
 
             <form action="" method="GET" class="w-full">
-                <div class="w-full relative group">
-                    <div class="flex items-center w-full px-5 py-3 rounded-full border border-gray-200 hover:shadow-md focus-within:shadow-md focus-within:border-white transition-all bg-white z-10">
-                        <span class="text-gray-400 mr-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </span>
-                        <input type="text" name="q" class="flex-grow outline-none text-gray-700" autocomplete="off" placeholder="Telusuri Athaa atau ketik URL">
-                    </div>
+                <div class="flex items-center w-full px-5 py-3 rounded-full border border-gray-200 hover:shadow-md focus-within:shadow-md transition-all bg-white">
+                    <span class="text-gray-400 mr-3">🔍</span>
+                    <input type="text" name="q" class="flex-grow outline-none text-gray-700" autocomplete="off" placeholder="Telusuri di Athaa...">
                 </div>
-
-                <div class="mt-8 flex gap-4 justify-center">
+                
+                <div class="mt-8 flex gap-3 justify-center">
                     <button type="submit" class="bg-[#f8f9fa] border border-[#f8f9fa] hover:border-[#dadce0] hover:shadow-sm text-sm text-[#3c4043] px-4 py-2 rounded">
-                        Penelusuran Athaa
+                        Penelusuran Google
                     </button>
                     <button type="button" class="bg-[#f8f9fa] border border-[#f8f9fa] hover:border-[#dadce0] hover:shadow-sm text-sm text-[#3c4043] px-4 py-2 rounded">
                         Saya Lagi Beruntung
@@ -67,39 +61,36 @@
             </form>
         </div>
 
-        <footer class="w-full bg-[#f2f2f2] text-sm text-gray-500 py-3 px-8 flex justify-between">
-            <div class="flex gap-6">
-                <a href="#" class="hover:underline">About</a>
-                <a href="#" class="hover:underline">Advertising</a>
-            </div>
-            <div class="flex gap-6">
-                <a href="#" class="hover:underline">Privacy</a>
-                <a href="#" class="hover:underline">Terms</a>
-            </div>
+        <footer class="w-full bg-[#f2f2f2] text-sm text-gray-500 py-3 px-8 flex justify-center md:justify-between">
+            <span class="hidden md:block">Indonesia</span>
+            <span>&copy; 2025 Athaa Search</span>
         </footer>
     </div>
 
 
-    <div id="results-view" class="hidden min-h-screen flex-col">
+    <div id="results-view" class="hidden min-h-screen flex-col bg-white">
         
-        <header class="sticky top-0 bg-white border-b border-gray-200 z-50">
-            <div class="flex flex-col md:flex-row items-center w-full px-4 py-5 gap-4 md:gap-8 max-w-[1400px]">
-                <a href="/" class="brand-font text-2xl font-bold text-slate-800 tracking-tighter md:pl-4">
+        <header class="sticky top-0 bg-white border-b border-gray-200 z-50 pt-5 pb-0">
+            <div class="flex flex-col md:flex-row items-center w-full px-4 gap-4 md:gap-8 max-w-[1400px] mb-4">
+                <a href="/" class="brand-font text-2xl font-bold text-slate-800 tracking-tighter md:pl-6">
                     athaa<span class="text-blue-600">.</span>
                 </a>
                 
-                <div class="w-full max-w-[690px] relative">
-                    <div class="gcse-searchbox-only" data-resultsUrl=""></div>
+                <div class="w-full max-w-[690px]">
+                     <div class="gcse-searchbox-only"></div>
                 </div>
             </div>
-             <div class="hidden md:flex px-4 md:px-[150px] gap-6 text-sm text-gray-600 pb-0 mt-2">
+
+            <div class="flex px-4 md:px-[150px] gap-6 text-sm text-gray-600">
                 <div class="border-b-[3px] border-blue-600 text-blue-600 pb-2 px-1 cursor-pointer font-medium">All</div>
                 <div class="hover:text-black pb-2 px-1 cursor-pointer">Images</div>
-                <div class="hover:text-black pb-2 px-1 cursor-pointer">News</div>
+                <div class="hover:text-black pb-2 px-1 cursor-pointer">Videos</div>
             </div>
         </header>
 
         <main class="w-full px-4 md:px-[150px] py-6 flex-grow">
+            <p class="text-xs text-gray-500 mb-4">Menampilkan hasil dari Google Programmable Search Engine</p>
+            
             <div class="w-full max-w-[800px]">
                 <div class="gcse-searchresults-only"></div>
             </div>
@@ -107,10 +98,9 @@
     </div>
 
     <script>
-        // Masukkan ID Google CSE Anda di sini jika script di bawah tidak otomatis
-        // Script loader
+        // 1. Script Loader Google CSE (ID Anda: 621a0c2c715e04ffd)
         (function() {
-            var cx = '621a0c2c715e04ffd'; // ID dari screenshot Anda
+            var cx = '621a0c2c715e04ffd'; 
             var gcse = document.createElement('script');
             gcse.type = 'text/javascript';
             gcse.async = true;
@@ -119,28 +109,27 @@
             s.parentNode.insertBefore(gcse, s);
         })();
 
-        // LOGIKA PINDAH HALAMAN (SWITCH VIEW)
+        // 2. Logic Mengganti Tampilan (Home vs Results)
         document.addEventListener("DOMContentLoaded", function() {
             const homeView = document.getElementById('home-view');
             const resultsView = document.getElementById('results-view');
             
-            // Ambil parameter URL (misal: ?q=hijab)
+            // Cek URL, apakah ada "?q=kata_kunci"
             const urlParams = new URLSearchParams(window.location.search);
-            const query = urlParams.get('q'); // Google CSE biasanya pakai 'q'
+            const query = urlParams.get('q'); 
 
             if (query) {
-                // JIKA ADA PENCARIAN (User sudah mengetik sesuatu)
-                homeView.classList.add('hidden'); // Sembunyikan Home
-                resultsView.classList.remove('hidden'); // Tampilkan Hasil
+                // JIKA ADA PENCARIAN -> Tampilkan Halaman Hasil
+                homeView.classList.add('hidden'); 
+                resultsView.classList.remove('hidden'); 
                 resultsView.classList.add('flex');
             } else {
-                // JIKA BELUM ADA PENCARIAN (Halaman awal)
-                homeView.classList.remove('hidden'); // Tampilkan Home
-                resultsView.classList.add('hidden'); // Sembunyikan Hasil
+                // JIKA TIDAK ADA -> Tampilkan Home
+                homeView.classList.remove('hidden');
+                resultsView.classList.add('hidden');
                 resultsView.classList.remove('flex');
             }
         });
     </script>
-
 </body>
 </html>
