@@ -3,139 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Athaa | SearcEngine</title>
+    <title>Athaa | SearchEngine</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     
     <style>
-        body {
-            font-family: 'Roboto', sans-serif; /* Font standar Google */
-            background-color: #ffffff;
-            color: #202124;
-            overflow-x: hidden;
-        }
+        body { font-family: 'Roboto', sans-serif; background-color: #fff; color: #202124; }
+        .brand-font { font-family: 'Outfit', sans-serif; }
 
-        .brand-font {
-            font-family: 'Outfit', sans-serif;
-        }
-
-        /* --- KUSTOMISASI ELEMENT GOOGLE CSE --- */
-        
-        /* Hilangkan border bawaan Google */
-        .gsc-control-cse {
-            border: none !important;
-            padding: 0 !important;
-            background-color: transparent !important;
-        }
-
-        /* Mengatur Search Bar di Header */
-        .search-bar-container .gsc-search-box {
-            margin-bottom: 0 !important;
-        }
-        
-        .search-bar-container .gsc-input-box {
-            background: #fff !important;
-            border: 1px solid #dfe1e5 !important;
-            border-radius: 24px !important;
+        /* Style untuk Hasil Pencarian Google CSE */
+        .gsc-control-cse { padding: 0 !important; border: none !important; background: transparent !important; }
+        .gsc-search-button { display: none !important; } /* Sembunyikan tombol bawaan di result page */
+        .gsc-input-box { 
+            border: 1px solid #dfe1e5 !important; 
+            border-radius: 24px !important; 
             height: 44px !important;
-            box-shadow: 0 1px 6px rgba(32,33,36,0.1) !important;
-            padding: 0 15px !important;
+            box-shadow: none !important;
         }
-
-        .search-bar-container .gsc-input-box:hover,
-        .search-bar-container .gsc-input-box:focus-within {
-            box-shadow: 0 1px 6px rgba(32,33,36,0.28) !important;
-            border-color: rgba(223,225,229,0) !important;
-        }
-
-        /* Tombol Search (Kaca Pembesar) */
-        button.gsc-search-button {
-            background: transparent !important;
-            border: none !important;
-            margin-left: -40px !important; /* Geser masuk ke dalam input */
-            z-index: 10;
-        }
-        
-        button.gsc-search-button svg {
-            fill: #4285f4 !important;
-            width: 20px !important;
-            height: 20px !important;
-        }
-
-        /* --- KUSTOMISASI HASIL PENCARIAN (RESULTS) --- */
-        .gsc-results-wrapper-visible {
-            padding-top: 20px !important;
-        }
-
-        /* Judul Hasil Pencarian (Biru Google) */
-        .gs-title, .gs-title b {
-            font-size: 20px !important;
-            color: #1a0dab !important;
-            text-decoration: none !important;
-            font-family: 'Roboto', sans-serif !important;
-        }
-
-        .gs-title:hover {
-            text-decoration: underline !important;
-        }
-
-        /* URL Hijau/Hitam di atas judul */
-        .gsc-url-top {
-            color: #202124 !important;
-            font-size: 14px !important;
-        }
-
-        /* Snippet / Deskripsi */
-        .gs-snippet {
-            font-size: 14px !important;
-            color: #4d5156 !important;
-            line-height: 1.58 !important;
-        }
-
-        /* Hilangkan branding Google default yang mengganggu */
-        .gcse-branding { display: none !important; }
-        
-        /* Iklan / Promo (jika ada) */
-        .gsc-adBlock { display: none !important; }
+        .gs-title { color: #1a0dab !important; text-decoration: none !important; font-size: 20px !important; }
+        .gs-title:hover { text-decoration: underline !important; }
+        .gs-snippet { color: #4d5156 !important; font-size: 14px !important; }
+        .gsc-url-top { color: #202124 !important; }
+        .gsc-adBlock, .gcse-branding { display: none !important; }
     </style>
 </head>
 <body>
 
-    <header class="sticky top-0 bg-white border-b border-gray-200 z-50">
-        <div class="flex flex-col md:flex-row items-center w-full px-4 py-4 md:py-5 gap-4 md:gap-8 max-w-[1400px]">
-            
-            <a href="#" class="brand-font text-3xl font-bold text-slate-800 tracking-tighter md:pl-4 mb-2 md:mb-0">
-                athaa
-                <span class="text-blue-600 text-4xl">.</span>
-            </a>
+    <div id="home-view" class="flex flex-col h-screen justify-between items-center transition-opacity duration-300">
+        
+        <div class="w-full flex justify-end p-4 gap-4 text-sm text-gray-600">
+            <a href="#" class="hover:underline">Gmail</a>
+            <a href="#" class="hover:underline">Images</a>
+            <div class="w-8 h-8 bg-blue-600 rounded-full text-white flex items-center justify-center font-bold">A</div>
+        </div>
 
-            <div class="search-bar-container w-full max-w-[690px]">
-                <div class="gcse-searchbox-only" data-resultsUrl=""></div>
+        <div class="flex flex-col items-center w-full max-w-[584px] px-4 -mt-20">
+            <div class="mb-8 text-center">
+                <h1 class="brand-font text-[80px] md:text-[90px] font-bold text-slate-800 tracking-tighter leading-none">
+                    athaa<span class="text-blue-600">.</span>
+                </h1>
             </div>
+
+            <form action="" method="GET" class="w-full">
+                <div class="w-full relative group">
+                    <div class="flex items-center w-full px-5 py-3 rounded-full border border-gray-200 hover:shadow-md focus-within:shadow-md focus-within:border-white transition-all bg-white z-10">
+                        <span class="text-gray-400 mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </span>
+                        <input type="text" name="q" class="flex-grow outline-none text-gray-700" autocomplete="off" placeholder="Telusuri Athaa atau ketik URL">
+                    </div>
+                </div>
+
+                <div class="mt-8 flex gap-4 justify-center">
+                    <button type="submit" class="bg-[#f8f9fa] border border-[#f8f9fa] hover:border-[#dadce0] hover:shadow-sm text-sm text-[#3c4043] px-4 py-2 rounded">
+                        Penelusuran Athaa
+                    </button>
+                    <button type="button" class="bg-[#f8f9fa] border border-[#f8f9fa] hover:border-[#dadce0] hover:shadow-sm text-sm text-[#3c4043] px-4 py-2 rounded">
+                        Saya Lagi Beruntung
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <footer class="w-full bg-[#f2f2f2] text-sm text-gray-500 py-3 px-8 flex justify-between">
+            <div class="flex gap-6">
+                <a href="#" class="hover:underline">About</a>
+                <a href="#" class="hover:underline">Advertising</a>
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:underline">Privacy</a>
+                <a href="#" class="hover:underline">Terms</a>
+            </div>
+        </footer>
+    </div>
+
+
+    <div id="results-view" class="hidden min-h-screen flex-col">
+        
+        <header class="sticky top-0 bg-white border-b border-gray-200 z-50">
+            <div class="flex flex-col md:flex-row items-center w-full px-4 py-5 gap-4 md:gap-8 max-w-[1400px]">
+                <a href="/" class="brand-font text-2xl font-bold text-slate-800 tracking-tighter md:pl-4">
+                    athaa<span class="text-blue-600">.</span>
+                </a>
+                
+                <div class="w-full max-w-[690px] relative">
+                    <div class="gcse-searchbox-only" data-resultsUrl=""></div>
+                </div>
+            </div>
+             <div class="hidden md:flex px-4 md:px-[150px] gap-6 text-sm text-gray-600 pb-0 mt-2">
+                <div class="border-b-[3px] border-blue-600 text-blue-600 pb-2 px-1 cursor-pointer font-medium">All</div>
+                <div class="hover:text-black pb-2 px-1 cursor-pointer">Images</div>
+                <div class="hover:text-black pb-2 px-1 cursor-pointer">News</div>
+            </div>
+        </header>
+
+        <main class="w-full px-4 md:px-[150px] py-6 flex-grow">
+            <div class="w-full max-w-[800px]">
+                <div class="gcse-searchresults-only"></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Masukkan ID Google CSE Anda di sini jika script di bawah tidak otomatis
+        // Script loader
+        (function() {
+            var cx = '621a0c2c715e04ffd'; // ID dari screenshot Anda
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+        })();
+
+        // LOGIKA PINDAH HALAMAN (SWITCH VIEW)
+        document.addEventListener("DOMContentLoaded", function() {
+            const homeView = document.getElementById('home-view');
+            const resultsView = document.getElementById('results-view');
             
-        </div>
+            // Ambil parameter URL (misal: ?q=hijab)
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('q'); // Google CSE biasanya pakai 'q'
 
-        <div class="hidden md:flex px-4 md:px-[165px] gap-6 text-sm text-gray-600 pb-0">
-            <div class="border-b-[3px] border-blue-600 text-blue-600 pb-2 px-1 cursor-pointer font-medium">All</div>
-            <div class="hover:text-black pb-2 px-1 cursor-pointer">Images</div>
-            <div class="hover:text-black pb-2 px-1 cursor-pointer">Videos</div>
-            <div class="hover:text-black pb-2 px-1 cursor-pointer">News</div>
-        </div>
-    </header>
-
-    <main class="w-full px-4 md:px-[165px] py-4 min-h-screen">
-        
-        <script async src="https://cse.google.com/cse.js?cx=621a0c2c715e04ffd"></script>
-        
-        <div class="w-full max-w-[800px]">
-            <div class="gcse-searchresults-only"></div>
-        </div>
-
-    </main>
-
-    <footer class="bg-[#f2f2f2] py-4 text-center text-sm text-gray-500 border-t border-gray-200 mt-10">
-        <p>&copy; 2025 Athaa Search Engine Project</p>
-    </footer>
+            if (query) {
+                // JIKA ADA PENCARIAN (User sudah mengetik sesuatu)
+                homeView.classList.add('hidden'); // Sembunyikan Home
+                resultsView.classList.remove('hidden'); // Tampilkan Hasil
+                resultsView.classList.add('flex');
+            } else {
+                // JIKA BELUM ADA PENCARIAN (Halaman awal)
+                homeView.classList.remove('hidden'); // Tampilkan Home
+                resultsView.classList.add('hidden'); // Sembunyikan Hasil
+                resultsView.classList.remove('flex');
+            }
+        });
+    </script>
 
 </body>
 </html>
